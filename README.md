@@ -31,13 +31,12 @@ def parse_chop(self) -> str:
 
 ```python
 def parse_term(self) -> str:
- ``` 
+``` 
 
 - Verifica se o Token é um número
 
 ```python
 def parse_expr(self)-> str | None:
-
 ``` 
 
 - Vai montar a expressão traduziada
@@ -50,3 +49,5 @@ def parse(self, source) -> str:
 
 
 Source = Expressão que foi escrita no Source Code
+
+### Análise Léxica
