@@ -5,7 +5,7 @@ class Parser:
 
     """
     
-        Manda qual vai ser a próxima posição a sertransformada em um Token
+        Manda qual vai ser a próxima posição a sera transformada em um Token
 
         Pos = Caso o  Token seja uma operação como + ou - ele vai enviar o próximo Token
     """
