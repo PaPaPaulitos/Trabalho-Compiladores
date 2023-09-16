@@ -46,7 +46,7 @@ def parse_expr(self)-> str | None:
 def parse(self, source) -> str:
  ``` 
 
-- Metodo que vai iniciar a tradução da expressão e retornar uma expressão traduzida para o analisador léxico
+- Método que vai iniciar a tradução da expressão e retornar uma expressão traduzida para o analisador léxico
 
 
 Source = Expressão que foi escrita no Source Code
