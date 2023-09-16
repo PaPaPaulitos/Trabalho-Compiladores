@@ -8,6 +8,47 @@ Realizar um programa que seja capaz de fazer a tradução e análise léxica de 
 
 ### Tradução
 
+A tradução foi feita usando a fórmula ensinada em sala de aula para evitar *recursão a esquerda*
+
+**Recusão a esquerda**
+
+A técnica que utilizaremos para eliminar a recursão a esquerda é bem simples.
+
+```
+expr ⭢ expr + term {print('+')}
+    |  expr - term {print('-')}
+    | term
+```
+
+Iremos converter a expressão para uma linguagem formal para explicar.
+
+Gramática com recursão a esquerda 
+```
+A ⭢ Aα | Aβ  ⭢ γR
+    | Aβ | R ⭢ αR 
+    | γ ⭢ ε
+
+
+A = expr
+α = term {print('+')}
+β = term {print('-')}
+γ = term
+
+```
+Gramática sem recursão a esquerda 
+```
+A ⭢ γR
+R ⭢ αR | βR | ε
+
+A = expr
+α = term {print('+')}
+β = term {print('-')}
+γ = term
+
+```
+
+Retiraremos a possibilidade de Loop infinito usando o algoritmo para retirar a recursão a esquerda.
+
 A tradução foi feita utilzando a classe *Parse* que possui os seguintes metódos.
 
  ```python
