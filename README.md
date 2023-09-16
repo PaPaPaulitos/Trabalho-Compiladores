@@ -33,7 +33,6 @@ A = expr
 α = term {print('+')}
 β = term {print('-')}
 γ = term
-
 ```
 Gramática sem recursão a esquerda 
 ```
@@ -44,7 +43,6 @@ A = expr
 α = term {print('+')}
 β = term {print('-')}
 γ = term
-
 ```
 
 Retiraremos a possibilidade de Loop infinito usando o algoritmo para retirar a recursão a esquerda.
