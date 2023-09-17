@@ -10,6 +10,25 @@ Realizar um programa que seja capaz de fazer a tradução e análise léxica de 
 
 ---
 
+## PaulitosLang
+
+É uma linguagem de programação em português com intuito de realizar cálculos matemáticos.
+
+O seu compilador é escrito em *Python*
+
+### Como compilar um arquivos em PaulitosLang?
+
+Basta executar no terminal onde fica o arquivo *paulitos.py* o seguinte comando junto ao **Source Code** que termine com a extensão *.paulitos*.
+
+```bash
+python paulitos.py <nome_do_arquivo>
+```
+
+
+---
+
+## Processos de Compilação
+
 ### Análise Léxica
 
 É o processo que verifica se uma palavra é aceita pela linguagem e separa as palavras aceitas em Tokens.
@@ -74,64 +93,13 @@ Retiraremos a possibilidade de Loop infinito usando o algoritmo para retirar a r
 
 No exemplo dado a cima ele vai organizar em uma árvore de operações como na imagem a seguir.
 
-![](./Traducao.jpg)
+![](./Images/Traducao.jpg)
 
 A árvore sempre percorre indo para o Nó mais a esquerda primeiro e depois imprimindo o seu operador, logo a saída será:
 
 ```
 34+2-
 ```
-
----
-
-### Código
-
-A Análise Léxica foi feita utilzando a classe *Lexical* que possui os seguintes metódos.
-
-
- ```python
- def look_ahead(self, pos = 0) -> str | None:
- ``` 
-
-- Manda qual vai ser a próxima posição a sera transformada em um Token.
-
-Pos = Caso o  Token seja uma operação como + ou - ele vai enviar o próximo Token.
-
-
- ```python
-def parse_advance(self):
- ``` 
-- Avança para o próximo Token
- 
-```python
-def parse_chop(self) -> str:
-``` 
-- Envia o próximo Token
-
-```python
-def parse_term(self) -> str:
-``` 
-
-- Verifica se o Token é um número
-
----
-
-A tradução foi feita utilzando a classe *Parse* que possui os seguintes metódos.
-
-```python
-def parse_expr(self)-> str | None:
-``` 
-
-- Vai montar a expressão traduziada
-
-```python
-def parse(self, source) -> str:
- ``` 
-
-- Método que vai iniciar a tradução da expressão e retornar uma expressão traduzida para o analisador léxico
-
-
-Source = Expressão que foi escrita no Source Code
 
 ---
 
