@@ -29,6 +29,10 @@ python paulitos.py <nome_do_arquivo>
 
 ## Processos de Compilação
 
+Podemos definir o processo de compilação pela seguinte imagem.
+
+![](./Images/compilação.jpg)
+
 ### Análise Léxica
 
 É o processo que verifica se uma palavra é aceita pela linguagem e separa as palavras aceitas em Tokens.
@@ -46,11 +50,11 @@ Ele vai verificar se cada um dos elementos da expressão existe dentro do dicion
 ```
 
 
----
+### Análise Sintática
 
-### Tradução
+É o processo que vai organizar os Tokens em uma arvoré/string para a operação ser mandada para o Backend realizar a operação em ordem.
 
-É o processo que vai organizar os Tokens em uma string para a operação ser mandada para o Backend realizar a operação em ordem.
+    A tradução deve ser capaz de recusar Tokens inválidos.
 
 A tradução foi feita usando a fórmula ensinada em sala de aula para evitar *recursão a esquerda*
 
@@ -100,6 +104,9 @@ A árvore sempre percorre indo para o Nó mais a esquerda primeiro e depois impr
 ```
 34+2-
 ```
+
+### Analise Semântica
+
 
 ---
 
