@@ -45,4 +45,4 @@ class Readfile:
         except Exception as e:
             print(e)
 
-        return expr
+        return expr.replace(" ", "")

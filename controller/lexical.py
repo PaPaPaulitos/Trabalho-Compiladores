@@ -20,6 +20,9 @@ class Lexical:
             self.parse_advance()
 
         return current
+    
+    def peek(self) -> str | None:
+        pass
 
 
     def parse_term(self) -> str:
