@@ -97,7 +97,7 @@ Retiraremos a possibilidade de Loop infinito usando o algoritmo para retirar a r
 
 No exemplo dado a cima ele vai organizar em uma árvore de operações como na imagem a seguir.
 
-![](./Images/Traducao.jpg)
+![](./Images//Traducao.jpeg)
 
 A árvore sempre percorre indo para o Nó mais a esquerda primeiro e depois imprimindo o seu operador, logo a saída será:
 
