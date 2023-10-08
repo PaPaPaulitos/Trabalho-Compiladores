@@ -1,3 +1,5 @@
+from model.token import Token
+
 from controller import lexical
 
 class Parser:
@@ -11,8 +13,13 @@ class Parser:
         translated += t1
 
         while(self.__lexical.look_ahead() == '+' or self.__lexical.look_ahead() == '-'):
+            if(self.__lexical.look_ahead() == '+'):
+                token = Token('+')
+                print(f"<{token.tag}>", end=" ")
+            elif(self.__lexical.look_ahead() == '-'):
+                token = Token('-')
+                print(f"<{token.tag}>", end=" ")
             op = self.__lexical.parse_chop()
-      
             t2 = self.__lexical.parse_term()
             translated += f'{t2}{op}'
 

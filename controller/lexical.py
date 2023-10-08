@@ -1,3 +1,5 @@
+from model.token import Num
+
 class Lexical:
     def __init__(self):
         self.expr: str
@@ -25,7 +27,7 @@ class Lexical:
         pass
 
 
-    def parse_term(self) -> str:
+    def parse_term(self) -> Num:
         try:
             number = ""
             while (self.look_ahead().isdigit()):
@@ -33,6 +35,8 @@ class Lexical:
                     term = self.look_ahead()
                     self.parse_advance()
                     number += term
+            token = Num(number)
+            print(f"< number ,{token.value}>", end=" ")
             return number
         except Exception as e:
             raise e("Sintax error")
