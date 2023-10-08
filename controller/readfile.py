@@ -34,15 +34,18 @@ class Readfile:
         file = self.__verify_file_name()
         try:
             with open(file, 'r') as source_code:
-                input = source_code.readline()
-
-                if input.strip():
-                    expr = input
-                else:
+                code_lines = source_code.readlines()  
+                code = ""
+                for line in code_lines:
+                    code += line.replace(" ", "").replace("\n", "")
+                  
+                code += r"\n"
+                
+                if not code.strip():
                     raise Exception(f"Empty file")
         except FileNotFoundError:
             print(f"File not found: {file}")
         except Exception as e:
             print(e)
 
-        return expr.replace(" ", "")
+        return code

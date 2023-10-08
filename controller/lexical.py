@@ -11,7 +11,6 @@ class Lexical:
         else:
             return ""
 
-
     def parse_advance(self):
         if ((self.index + 1) <= len(self.expr) - 1):
             self.index += 1
@@ -25,7 +24,6 @@ class Lexical:
     
     def peek(self) -> str | None:
         pass
-
 
     def parse_term(self) -> Num:
         try:
