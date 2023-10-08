@@ -27,9 +27,12 @@ class Lexical:
 
     def parse_term(self) -> str:
         try:
-            if (self.look_ahead().isdigit()):
-                term = self.look_ahead()
-                self.parse_advance()
-                return term
+            number = ""
+            while (self.look_ahead().isdigit()):
+                if (self.look_ahead().isdigit()):
+                    term = self.look_ahead()
+                    self.parse_advance()
+                    number += term
+            return number
         except Exception as e:
-            raise Exception("Sintax error")
+            raise e("Sintax error")

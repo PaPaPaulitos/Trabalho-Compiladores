@@ -4,7 +4,7 @@ class Token:
         
 class Num(Token):
     def __init__(self,value):
-        self.value= value
+        self.value = value
 
 class Id(Token):
     def __init__(self,name):
