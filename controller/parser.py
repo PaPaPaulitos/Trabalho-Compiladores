@@ -13,14 +13,11 @@ class Parser:
         self.__translated.append(t1)
 
         while(self.__lexical.look_ahead() == '+' or self.__lexical.look_ahead() == '-'):
-            if(self.__lexical.look_ahead() == '+'):
-                token = Token('+')
-            elif(self.__lexical.look_ahead() == '-'):
-                token = Token('-')
             op = self.__lexical.parse_chop()
+            token = Token(op)
             t2 = self.__lexical.parse_term()
             self.__translated.append(t2)
-            self.__translated.append(op)
+            self.__translated.append(token)
             
 
         return self.__translated
