@@ -36,7 +36,6 @@ class Lexical:
                     self.parse_advance()
                     number += term
             token = Num(number)
-            print(f"< number ,{token.value}>", end=" ")
-            return number
+            return token
         except Exception as e:
             raise e("Sintax error")

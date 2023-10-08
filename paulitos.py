@@ -8,7 +8,8 @@ if __name__ == '__main__':
 
     try:
         expression = parser.parse("33+77\n") # Colocar depois o expr aqui [NÃO ESQUECER PAULO]
-        print(expression)
+        for token in expression:
+            print(token, end=" ")
     except Exception as e:
         print(e)
     

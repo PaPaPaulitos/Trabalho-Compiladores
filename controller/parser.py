@@ -5,25 +5,25 @@ from controller import lexical
 class Parser:
     def __init__(self):
         self.__lexical = lexical.Lexical()
+        self.__translated = list()
 
 
-    def parse_expr(self)-> str | None:
-        translated = ''
+    def parse_expr(self)-> list | None:
         t1 = self.__lexical.parse_term()
-        translated += t1
+        self.__translated.append(t1)
 
         while(self.__lexical.look_ahead() == '+' or self.__lexical.look_ahead() == '-'):
             if(self.__lexical.look_ahead() == '+'):
                 token = Token('+')
-                print(f"<{token.tag}>", end=" ")
             elif(self.__lexical.look_ahead() == '-'):
                 token = Token('-')
-                print(f"<{token.tag}>", end=" ")
             op = self.__lexical.parse_chop()
             t2 = self.__lexical.parse_term()
-            translated += f'{t2}{op}'
+            self.__translated.append(t2)
+            self.__translated.append(op)
+            
 
-        return translated
+        return self.__translated
 
 
     def parse(self, expr) -> str:
