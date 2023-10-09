@@ -21,6 +21,8 @@ Realizar um programa que seja capaz de fazer a tradução e análise léxica de 
 - [O que é PaulitosLang?](./paulitoslang.md)
 - [Como funciona um compilador?](./como_funciona_um_compilador.md)
 - [Funcionamento do PaulitosLang](./funcionamento_paulitos_lang.md)
+- [Alunos](./alunos.md)
+
 ---
 
 ### Referências
