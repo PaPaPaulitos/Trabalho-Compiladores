@@ -4,6 +4,7 @@ class Lexical:
     def __init__(self,expr):
         self.expr: str = expr
         self.index: int = 0
+        self.stack = list()
     
     def look_ahead(self, pos = 0) -> str | None:
         if ((self.index + pos) <= len(self.expr) - 1):
@@ -22,7 +23,18 @@ class Lexical:
 
         return current
     
-
+    def validate_expression(self, token: str):
+        if token == "(":
+            self.stack.append(token)
+            return
+        elif token == ')':
+            if len(self.stack) > 0:
+                self.stack.pop()
+            else:
+                self.stack.append(token)
+                return
+        else:
+            return
 
 
     def next_token(self) -> Token:
@@ -38,6 +50,7 @@ class Lexical:
             elif (expression.isalpha()):
                 token = Id(expression)
             else:
+                self.validate_expression(self.look_ahead())
                 term = self.look_ahead()
                 self.parse_advance()
                 expression = term
@@ -51,7 +64,9 @@ class Lexical:
             tokens: list = []
             while (self.look_ahead() != "\n"):
                 tokens.append(self.next_token())
+            if len(self.stack) != 0:
+                raise Exception("Invalid expression")
             return tokens
         except Exception as e:
-            raise e("Sintax error")
+            raise e
         

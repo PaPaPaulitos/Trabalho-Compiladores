@@ -39,7 +39,7 @@ class Readfile:
                 for line in code_lines:
                     code += line.replace(" ", "").replace("\n", "")
                   
-                code += r"\n"
+                code += "\n"
                 
                 if not code.strip():
                     raise Exception(f"Empty file")
