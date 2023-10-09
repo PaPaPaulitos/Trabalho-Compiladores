@@ -39,3 +39,13 @@ Basta executar no terminal onde fica o arquivo *paulitos.py* o seguinte comando 
 ```bash
 python paulitos.py <nome_do_arquivo>.paulitos
 ```
+
+## Outros meios de executar um código da PaulitosLang
+
+- Você pode entrar na pasta `codigo_fonte` e editar o `main.paulitos`para a expressão que você quer.
+
+- Após isso é só clicar no arquivo `PaulitosLang` dentro do diretório.
+
+> Atenção só funciona para Windows
+
+![Executando PaulitosLang](./Images/executando_paulitoslang.png)
