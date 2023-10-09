@@ -16,6 +16,12 @@ Realizar um programa que seja capaz de fazer a tradução e análise léxica de 
 
 ---
 
+## Slide apresentando em aula
+
+- [PaulitosLang - Analisador Léxico](https://www.canva.com/design/DAFwzVylqcY/wVcCZF9HcYQgAudrHn4hpw/edit?utm_content=DAFwzVylqcY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+
+---
+
 ## Sumário
 
 - [O que é PaulitosLang?](./paulitoslang.md)
