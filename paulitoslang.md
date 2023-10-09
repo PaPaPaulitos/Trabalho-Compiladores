@@ -1,5 +1,7 @@
 # PaulitosLang
 
+![Logo Paulitos Lang](./Images/paulitoslang_logo.png)
+
 É uma linguagem de programação em português com intuito de realizar cálculos matemáticos.
 
 O seu compilador é escrito em *Python*
