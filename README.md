@@ -10,6 +10,12 @@ Realizar um programa que seja capaz de fazer a tradução e análise léxica de 
 
 ---
 
+## Videos do trabalho
+
+- [PaulitosLang - Analisador Léxico](https://youtu.be/FkD5Ln1sYPo)
+
+---
+
 ## Sumário
 
 - [O que é PaulitosLang?](./paulitoslang.md)
