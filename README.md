@@ -6,7 +6,7 @@ Trabalho da matéria compiladores ministrada pelo professor André Lúcio na Uni
 
 ## Objetivo do trabalho
 
-Realizar um programa que seja capaz de fazer a tradução e análise léxica de um código fonte.
+Realizar um programa que seja capaz de fazer análise léxica de um código fonte.
 
 ---
 

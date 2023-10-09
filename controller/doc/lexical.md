@@ -7,20 +7,19 @@ A Análise Léxica foi feita utilzando a classe *Lexical* que possui os seguinte
  def look_ahead(self, pos = 0) -> str | None:
  ``` 
 
-- Manda qual vai ser a próxima posição a sera transformada em um Token.
+- Manda qual vai ser a próxima posição do *source code*.
 
-Pos = Caso o  Token seja uma operação como + ou - ele vai enviar o próximo Token.
-
+Pos = Caso a posição seja uma operação como + ou - ele vai enviar a próxima operação.
 
  ```python
 def parse_advance(self):
  ``` 
-- Avança para o próximo Token
+- Avança para o próximo posição da expressão
  
 ```python
 def parse_chop(self) -> str:
 ``` 
-- Envia o próximo Token
+- Envia o próximo caractere da expressão
 
 
 ```python
