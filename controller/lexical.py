@@ -23,7 +23,7 @@ class Lexical:
 
         return current
     
-    def validate_expression(self, token: str):
+    def validate_expression(self, token: str) -> None:
         if token == "(":
             self.stack.append(token)
             return

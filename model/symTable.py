@@ -3,6 +3,7 @@ from model.token import Token
 class SymTable:
     def __init__(self):
         self.__hash_table = dict()
+        self.__sym_table
 
     def hasSimbol(self, key) -> bool :
         if key in self.__hash_table:
