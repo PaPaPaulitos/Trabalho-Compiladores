@@ -1,4 +1,5 @@
 from model.token import Token,Num, Id
+from model.reserved import reserved
 
 class Lexical:
     def __init__(self,expr):
@@ -49,15 +50,17 @@ class Lexical:
                 token = Num(expression)
             elif (expression.isalpha()):
                 token = Id(expression)
-            else:
+            elif self.look_ahead() in reserved:
                 self.validate_expression(self.look_ahead())
                 term = self.look_ahead()
                 self.parse_advance()
                 expression = term
                 token = Token(expression)
+            else:
+                raise Exception("Invalid expression")
             return token
         except Exception as e:
-            raise e("Sintax error")
+            raise e
 
     def lexical_list(self) -> list:
         try:

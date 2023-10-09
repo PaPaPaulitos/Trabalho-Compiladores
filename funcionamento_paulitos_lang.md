@@ -12,5 +12,5 @@
 
 - [Tokens](./model/doc/token.md)
 - [Tabela de Simbolos](./model/doc/sym_table.md)
-
+- [Palavras reservadas da linguagem](./model/doc/reserved.md)
 ---
