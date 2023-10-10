@@ -6,6 +6,7 @@ class Lexical:
         self.__expr: str = expr
         self.__index: int = 0
         self.__stack = list()
+        self.__is_digit_or_alpha = lambda x: x.isdigit() or x.isalpha()
     
     def __look_ahead(self, pos = 0) -> str | None:
         if ((self.__index + pos) <= len(self.__expr) - 1):
@@ -37,22 +38,22 @@ class Lexical:
 
     def __next_token(self) -> Token:
         try:
-            __expression: str = ""
-            while (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
-                if (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
+            expression: str = ""
+            while (self.__is_digit_or_alpha(self.__look_ahead())):
+                if (self.__is_digit_or_alpha(self.__look_ahead())):
                     term = self.__look_ahead()
                     self.__parse_advance()
-                    __expression += term
-            if (__expression.isdigit()):
-                token = Num(__expression)
-            elif (__expression.isalpha()):
-                token = Id(__expression)
+                    expression += term
+            if (expression.isdigit()):
+                token = Num(expression)
+            elif (expression.isalpha()):
+                token = Id(expression)
             elif self.__look_ahead() in reserved:
                 self.__validate_expression(self.__look_ahead())
                 term = self.__look_ahead()
                 self.__parse_advance()
-                __expression = term
-                token = Token(__expression)
+                expression = term
+                token = Token(expression)
             else:
                 raise Exception("Element not identified")
             return token
