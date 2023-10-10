@@ -2,20 +2,20 @@ from model.token import Token,Num, Id
 from model.reserved import reserved, operators
 
 class Lexical:
-    def __init__(self,expr):
-        self.expr: str = expr
-        self.index: int = 0
+    def __init__(self,__expr):
+        self.__expr: str = __expr
+        self.__index: int = 0
         self.__stack = list()
     
     def __look_ahead(self, pos = 0) -> str | None:
-        if ((self.index + pos) <= len(self.expr) - 1):
-            return self.expr[self.index]
+        if ((self.__index + pos) <= len(self.__expr) - 1):
+            return self.__expr[self.__index]
         else:
             return ""
 
     def __parse_advance(self):
-        if ((self.index + 1) <= len(self.expr) - 1):
-            self.index += 1
+        if ((self.__index + 1) <= len(self.__expr) - 1):
+            self.__index += 1
 
     def __parse_chop(self) -> str:
         current = self.__look_ahead()
@@ -24,7 +24,7 @@ class Lexical:
 
         return current
     
-    def __validate_expression(self, token: str) -> None:
+    def __validate___expression(self, token: str) -> None:
         if token == "(":
             self.__stack.append(token)
             return
@@ -40,22 +40,22 @@ class Lexical:
 
     def __next_token(self) -> Token:
         try:
-            expression: str = ""
+            __expression: str = ""
             while (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
                 if (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
                     term = self.__look_ahead()
                     self.__parse_advance()
-                    expression += term
-            if (expression.isdigit()):
-                token = Num(expression)
-            elif (expression.isalpha()):
-                token = Id(expression)
+                    __expression += term
+            if (__expression.isdigit()):
+                token = Num(__expression)
+            elif (__expression.isalpha()):
+                token = Id(__expression)
             elif self.__look_ahead() in reserved:
-                self.__validate_expression(self.__look_ahead())
+                self.__validate___expression(self.__look_ahead())
                 term = self.__look_ahead()
                 self.__parse_advance()
-                expression = term
-                token = Token(expression)
+                __expression = term
+                token = Token(__expression)
             else:
                 raise Exception("Element not identified")
             return token
@@ -71,7 +71,7 @@ class Lexical:
             if len(self.__stack) != 0:
                 raise Exception("Unclosed parentheses")
             elif tokens[-1].tag in operators:
-                raise Exception("Expression Incompleted")
+                raise Exception("__expression Incompleted")
             return tokens
         except Exception as e:
             raise e
