@@ -1,63 +1,63 @@
 from model.token import Token,Num, Id
-from model.reserved import reserved
+from model.reserved import reserved, operators
 
 class Lexical:
     def __init__(self,expr):
         self.expr: str = expr
         self.index: int = 0
-        self.stack = list()
+        self.__stack = list()
     
-    def look_ahead(self, pos = 0) -> str | None:
+    def __look_ahead(self, pos = 0) -> str | None:
         if ((self.index + pos) <= len(self.expr) - 1):
             return self.expr[self.index]
         else:
             return ""
 
-    def parse_advance(self):
+    def __parse_advance(self):
         if ((self.index + 1) <= len(self.expr) - 1):
             self.index += 1
 
-    def parse_chop(self) -> str:
-        current = self.look_ahead()
+    def __parse_chop(self) -> str:
+        current = self.__look_ahead()
         if(current != None):
-            self.parse_advance()
+            self.__parse_advance()
 
         return current
     
-    def validate_expression(self, token: str) -> None:
+    def __validate_expression(self, token: str) -> None:
         if token == "(":
-            self.stack.append(token)
+            self.__stack.append(token)
             return
         elif token == ')':
-            if len(self.stack) > 0:
-                self.stack.pop()
+            if len(self.__stack) > 0:
+                self.__stack.pop()
             else:
-                self.stack.append(token)
+                self.__stack.append(token)
                 return
         else:
             return
 
 
-    def next_token(self) -> Token:
+    def __next_token(self) -> Token:
         try:
             expression: str = ""
-            while (self.look_ahead().isdigit() or self.look_ahead().isalpha()):
-                if (self.look_ahead().isdigit() or self.look_ahead().isalpha()):
-                    term = self.look_ahead()
-                    self.parse_advance()
+            while (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
+                if (self.__look_ahead().isdigit() or self.__look_ahead().isalpha()):
+                    term = self.__look_ahead()
+                    self.__parse_advance()
                     expression += term
             if (expression.isdigit()):
                 token = Num(expression)
             elif (expression.isalpha()):
                 token = Id(expression)
-            elif self.look_ahead() in reserved:
-                self.validate_expression(self.look_ahead())
-                term = self.look_ahead()
-                self.parse_advance()
+            elif self.__look_ahead() in reserved:
+                self.__validate_expression(self.__look_ahead())
+                term = self.__look_ahead()
+                self.__parse_advance()
                 expression = term
                 token = Token(expression)
             else:
-                raise Exception("Invalid expression")
+                raise Exception("Element not identified")
             return token
         except Exception as e:
             raise e
@@ -65,10 +65,13 @@ class Lexical:
     def lexical_list(self) -> list:
         try:
             tokens: list = []
-            while (self.look_ahead() != "\n"):
-                tokens.append(self.next_token())
-            if len(self.stack) != 0:
-                raise Exception("Invalid expression")
+            while (self.__look_ahead() != "\n"):
+                tokens.append(self.__next_token())
+            
+            if len(self.__stack) != 0:
+                raise Exception("Unclosed parentheses")
+            elif tokens[-1].tag in operators:
+                raise Exception("Expression Incompleted")
             return tokens
         except Exception as e:
             raise e

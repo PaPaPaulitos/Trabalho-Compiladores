@@ -17,10 +17,10 @@ class Readfile:
             print(e)
 
     def __verify_file_name(self) -> str:
-        pattern = r'^[a-zA-Z0-9]+\.paulitos$'
+        pattern: str = r'^[a-zA-Z0-9]+\.paulitos$'
 
         try:
-            filename = self.__file_exists()
+            filename:str = self.__file_exists()
             is_dot_paulitos = re.search(pattern, filename)
             if is_dot_paulitos:
                 return filename
@@ -41,7 +41,7 @@ class Readfile:
                   
                 code += "\n"
                 
-                if not code.strip():
+                if not code.strip() or code_lines == []:
                     raise Exception(f"Empty file")
         except FileNotFoundError:
             print(f"File not found: {file}")

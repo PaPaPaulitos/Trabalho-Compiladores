@@ -1,1 +1,3 @@
-reserved = ["+","-","*","/","(",")"]
+operators = ["+","-","*","/"]
+
+reserved = ["(",")"] + operators
