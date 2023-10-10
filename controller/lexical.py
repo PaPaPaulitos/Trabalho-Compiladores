@@ -17,12 +17,6 @@ class Lexical:
         if ((self.__index + 1) <= len(self.__expr) - 1):
             self.__index += 1
 
-    def __parse_chop(self) -> str:
-        current = self.__look_ahead()
-        if(current != None):
-            self.__parse_advance()
-
-        return current
     
     def __validate___expression(self, token: str) -> None:
         if token == "(":

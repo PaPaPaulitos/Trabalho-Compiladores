@@ -16,12 +16,7 @@ def __parse_advance(self):
  ``` 
 - Avança para o próximo posição da expressão
  
-```python
-def __parse_chop(self) -> str:
-``` 
-- Envia o próximo caractere da expressão
-
-
+ 
 ```python
 def __validate_expression(self, token: str) -> None:
 ```
