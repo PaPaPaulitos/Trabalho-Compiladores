@@ -2,14 +2,14 @@ from model.token import Token,Num, Id
 from model.reserved import reserved, operators
 
 class Lexical:
-    def __init__(self,__expr):
-        self.__expr: str = __expr
+    def __init__(self,expr):
+        self.__expr: str = expr
         self.__index: int = 0
         self.__stack = list()
     
     def __look_ahead(self, pos = 0) -> str | None:
         if ((self.__index + pos) <= len(self.__expr) - 1):
-            return self.__expr[self.__index]
+            return self.__expr[self.__index + pos]
         else:
             return ""
 
@@ -18,8 +18,11 @@ class Lexical:
             self.__index += 1
 
     
-    def __validate___expression(self, token: str) -> None:
+    def __validate_expression(self, token: str) -> None:
         if token == "(":
+            if self.__look_ahead(1) in reserved:
+                raise Exception("Invalid expression")
+            
             self.__stack.append(token)
             return
         elif token == ')':
@@ -45,7 +48,7 @@ class Lexical:
             elif (__expression.isalpha()):
                 token = Id(__expression)
             elif self.__look_ahead() in reserved:
-                self.__validate___expression(self.__look_ahead())
+                self.__validate_expression(self.__look_ahead())
                 term = self.__look_ahead()
                 self.__parse_advance()
                 __expression = term
@@ -65,7 +68,7 @@ class Lexical:
             if len(self.__stack) != 0:
                 raise Exception("Unclosed parentheses")
             elif tokens[-1].tag in operators:
-                raise Exception("__expression Incompleted")
+                raise Exception("Expression Incompleted")
             return tokens
         except Exception as e:
             raise e
