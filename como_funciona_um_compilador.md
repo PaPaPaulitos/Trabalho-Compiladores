@@ -27,7 +27,7 @@ Ele vai verificar se cada um dos elementos da expressão existe dentro do dicion
 
 É o processo que vai organizar os Tokens em uma arvoré/string para a operação ser mandada para o Backend realizar a operação em ordem.
 
-    A tradução deve ser capaz de recusar Tokens inválidos.
+> A tradução deve ser capaz de recusar Tokens inválidos.
 
 A tradução foi feita usando a fórmula ensinada em sala de aula para evitar *recursão a esquerda*
 
