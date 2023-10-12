@@ -4,24 +4,26 @@ Podemos definir o processo de compilação pela seguinte imagem.
 
 ![](./Images/compilação.jpg)
 
-## Análise Léxica
+## Front-end
 
-É o processo que verifica se uma palavra é aceita pela linguagem e separa as palavras aceitas em Tokens.
+### Análise Léxica
+
+É o processo que verifica se uma expressão é aceita pela linguagem e separa as expressões aceitas em Tokens.
 
 Exemplo a expressão
 
 ```
-3 + 4 - 2
+(33 + 42) * 257 - expr
 ```
 
 Ele vai verificar se cada um dos elementos da expressão existe dentro do dicionário da linguagem e separar eles, assim ficando.
 
 ```
-[3] [+] [4] [-] [2]
+<(> <number, 33> <+> <number,42> <)> <*> <number, 257> <-> <id, expr>
 ```
 
 
-## Análise Sintática
+### Análise Sintática
 
 É o processo que vai organizar os Tokens em uma arvoré/string para a operação ser mandada para o Backend realizar a operação em ordem.
 
@@ -76,4 +78,4 @@ A árvore sempre percorre indo para o Nó mais a esquerda primeiro e depois impr
 34+2-
 ```
 
-## Analise Semântica
+### Analise Semântica
