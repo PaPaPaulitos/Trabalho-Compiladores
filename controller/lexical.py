@@ -23,7 +23,8 @@ class Lexical:
         if token == "(":
             if self.__look_ahead(1) in reserved:
                 raise Exception("Invalid expression")
-            
+            elif (self.__look_ahead(-1).isalpha() or self.__look_ahead(-1).isdigit()) and (self.__look_ahead(1).isalpha() or self.__look_ahead(1).isdigit()):
+                raise Exception("Invalid expression")
             self.__stack.append(token)
             return
         elif token == ')':
